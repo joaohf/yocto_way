@@ -1,0 +1,91 @@
+backend:
+  name: github
+  repo: joaohf/yocto_way
+  branch: master # Branch to update (optional; defaults to master)
+publish_mode: editorial_workflow
+media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
+public_folder: "/uploads" # The src attribute for uploaded media will begin with /images/uploads
+collections:
+  - name: "post" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - label: "Related Author"
+        name: "post"
+        widget: "relation"
+        collection: "author"
+        valueField: "title"
+        searchFields: ["title", "body"]
+      - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Home Page"
+        name: "_index"
+        file: "content/_index.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Position, name: position, widget: string}
+              - {label: Photo, name: photo, widget: image}
+              - label: "Post Settings"
+                name: posts
+                widget: "object"
+                fields:
+                  - {label: "Number of posts on frontpage", name: front_limit, widget: number}
+                  - {label: "Default Author", name: author, widget: string}
+                  - {label: "Default Thumbnail", name: thumb, widget: image, class: "thumb"}
+  - label: "Page"
+    name: "pages"
+    folder: "content/"
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: Locations
+        name: locations
+        widget: list
+        fields:
+          - {label: Name, name: name, widget: string}
+          - {label: Address, name: address, widget: string}
+  - label: "About"
+    name: "about"
+    folder: "content/about/"
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: Locations
+        name: locations
+        widget: list
+        fields:
+          - {label: Name, name: name, widget: string}
+          - {label: Address, name: address, widget: string}
+  - name: "settings"
+    label: "Settings"
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Site Settings"
+        file: "data/settings.json"
+        description: "General Site Settings"
+        fields:
+          - {label: "Global title", name: "site_title", widget: "string"}
+          - label: "Post Settings"
+            name: posts
+            widget: "object"
+            fields:
+              - {label: "Number of posts on frontpage", name: front_limit, widget: number}
+              - {label: "Default Author", name: author, widget: string}
+              - {label: "Default Thumbnail", name: thumb, widget: image, class: "thumb"}

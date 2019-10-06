@@ -1,0 +1,52 @@
+title = "Yocto Way"
+baseURL = "https://yocto-way.netlify.com/"
+languageCode = "en-us"
+theme = "ananke"
+DefaultContentLanguage = "en"
+sectionPagesMenu = "main"
+copyright = "Everything is mine"
+enableRobotsTXT = true
+Paginate = 15
+googleAnalytics = "UA-145112810-1"
+disqusShortname = "yoctoway"
+
+[params]
+  favicon = ""
+  description = "A blog about Yocto Project."
+  facebook = ""
+  twitter = ""
+  instagram = ""
+  youtube = ""
+  github = "https://github.com/joaohf/"
+  gitlab = ""
+  linkedin = "https://www.linkedin.com/in/joão-henrique-freitas"
+  mastodon = ""
+  # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+  background_color_class = "bg-black"
+#  featured_image = "/images/stockholm.jpg"
+  recent_posts_number = 6
+
+[author]
+  name = "João Henrique Ferreira de Freitas"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[related]
+threshold = 80.0
+includeNewer = true
+toLower = false
+
+  [[related.indices]]
+  name = "series"
+  weight = 100.0
+
+  [[related.indices]]
+  name = "tags"
+  weight = 110.0
+
+  [[related.indices]]
+  name = "date"
+  weight = 10.0
