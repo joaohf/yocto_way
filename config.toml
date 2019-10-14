@@ -7,7 +7,7 @@ sectionPagesMenu = "main"
 copyright = "https://creativecommons.org/licenses/by/4.0/"
 enableRobotsTXT = true
 Paginate = 15
-googleAnalytics = "UA-145112810-1"
+googleAnalytics = "UA-150011766-1"
 disqusShortname = "yoctoway"
 
 [params]
@@ -25,6 +25,7 @@ disqusShortname = "yoctoway"
   background_color_class = "bg-black"
 #  featured_image = "/images/stockholm.jpg"
   recent_posts_number = 6
+  show_reading_time = true
 
 [author]
   name = "João Henrique Ferreira de Freitas"
