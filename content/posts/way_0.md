@@ -3,6 +3,7 @@ title: meta-cloonix
 date: 2010-10-05T12:00:00-05:00
 draft: false
 toc: true
+featured_image: 'media/yocto-way0.jpg'
 ---
 
 ## Introduction
